@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <title>Job Details</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/navbar.css"> 
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"> Job Search Website</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../Search.html">Search</a></li>
+                <li><a href="../jobs.html">View Jobs</a></li>
+                <li><a href="../add_new_job.html">Add New Job</a></li>
+                <li><a href="../applied_jobs.html">Applied Jobs</a></li>
+            </ul>
+            <div class="login-button">
+                <a href="login.html">Login</a>
+                <a href="signup.html">Sign up</a>
+            </div>
+        </div>
+        </nav>
+    <div class="jobs">
+        <h1>Job Details</h1>
+        <div>
+            <h2>Data Analyst</h2>
+            <p><strong>Company:</strong> DELL Technologies</p>
+            <p><strong>Salary:</strong> $7,000</p>
+            <p><strong>Status:</strong> Open</p>
+            <p><strong>Description:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget nisi vel felis ullamcorper scelerisque.</p>
+            <p><strong>Years of Experience:</strong> 3-5 years</p>
+            <input type="button" value="Edit" onclick="window.location.href = '../add_new_job.html'" class="btn">
+            <input type="button" value="Delete" class="btn">
+        </div>
+        <form id="apply-form" onsubmit="validateApplyForm(event)">
+            <h2>Apply for this job</h2>
+            <label for="applicant_name">Your Name:</label><br>
+            <input type="text" id="applicant_name" name="applicant-name">
+            <p id="applicant_name_error" class="display-error"></p>
+            
+            <label for="applicant_email">Your Email:</label><br>
+            <input type="email" id="applicant_email" name="applicant-email">
+            <p id="applicant_email_error" class="display-error"></p>
+            
+            <label for="resume">Upload Resume:</label><br>
+            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx"><br><br>
+            
+            <input type="submit" value="Apply" class="btn">
+        </form>
+    </div>
+    <script src="../../JS/validations.js"></script>
+</body>
+</html>

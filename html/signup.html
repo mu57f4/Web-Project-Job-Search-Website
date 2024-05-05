@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navbar.css"> 
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar">
+            <div class="logo">
+                <a href="index.html"> Job Search Website</a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Search.html">Search</a></li>
+                <li><a href="jobs.html">View Jobs</a></li>
+                <li><a href="add_new_job.html">Add New Job</a></li>
+                <li><a href="applied_jobs.html">Applied Jobs</a></li>
+            </ul>
+            <div class="login-button">
+                <a href="login.html">Login</a>
+                <a href="signup.html">Sign up</a>
+            </div>
+        </div>
+        </nav>
+    <div class="authForm">
+        <h1>Sign Up</h1>
+        <form method="post" onsubmit="validateSignupForm(event)">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+            <p id="username_error" class="display-error"></p>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <p id="password_error" class="display-error"></p>
+            
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password">
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <p id="email_error" class="display-error"></p>
+            
+            <label for="is_company_admin">Are you a company admin?</label>
+            <input type="checkbox" id="is_company_admin" name="is_company_admin"><br><br>
+
+            <input type="submit" value="Sign up" class="loginbtn">
+            <a href="index.html"> || << Go Back Home >> ||</a>
+        </form>
+    </div>
+    <script src="../JS/validations.js"></script>
+</body>
+</html>
