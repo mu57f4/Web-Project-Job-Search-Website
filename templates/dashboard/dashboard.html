@@ -1,0 +1,16 @@
+<html>
+    <head>
+        <title>
+            Dashboard
+        </title>
+    </head>
+    <body>
+        <h1>
+            {% if username %}
+                Welcome to your Dashboard, {{username}}
+            {% else %}
+                Dashboard: Please go to Login page
+            {% endif %}
+        </h1>
+    </body>
+</html>
