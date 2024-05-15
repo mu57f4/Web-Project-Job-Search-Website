@@ -4,19 +4,34 @@
 
 <head>
     <title>Applicant Login Page</title>
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
 </head>
 
 <body>
     {% block content %}
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+    {% if username %}
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert-{{message.tags}}"><strong>{{ message }}</strong></div>
+    {% endfor %}
+    {% endif %}
+
+    {% if request.user.is_recruiter %}
+        {% if not request.user.has_company %}
+        <div class="alert-warning">
+            <b>You have not created a company, Create one now from <a href="{% url 'update-company' %}">here</a></b>
+        </div>
+        {% endif %}
+    {% endif %}
 
     <h1>
-        {% if username %}
         Welcome to your Dashboard, {{ username }}
         {% else %}
         This is the Dashboard, Please go to <a href="{% url 'login' %}">LOGIN PAGE</a>
-        {% endif %}
     </h1>
+
+    {% endif %}
     {% endblock content %}
 </body>
 

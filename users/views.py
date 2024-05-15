@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from .models import User
 from .form import RegisterUserForm
-from django.contrib.auth.forms import AuthenticationForm
+from company.models import Company
 
 # Register applicant
 def register_applicant(request):
@@ -14,7 +14,7 @@ def register_applicant(request):
             var.is_applicant = True
             var.username = var.email
             var.save()
-            messages.info(request, 'Your account has been created.')
+            messages.success(request, 'Your account has been created successfully.')
             return redirect('login')
         else:
             messages.warning(request, 'Oops!, Something went wrong.')
@@ -32,9 +32,11 @@ def register_recruiter(request):
         if form.is_valid():
             var = form.save(commit=False)
             var.is_recruiter = True
+            var.has_company = False
             var.username = var.email
             var.save()
-            messages.info(request, 'Your account has been created.')
+            Company.objects.create(user=var)
+            messages.success(request, 'Your account has been created successfully.')
             return redirect('login')
         else:
             messages.warning(request, 'Oops!, Something went wrong.')
@@ -62,9 +64,7 @@ def login_user(request):
             messages.warning(request, 'Oops!, Something went wrong.')
             return redirect('login')
     else:
-        form = AuthenticationForm()
-        context = {'form': form}
-        return render(request, 'users/login.html', context)
+        return render(request, 'users/login.html')
     
 
 def logout_user(request):

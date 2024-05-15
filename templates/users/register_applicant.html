@@ -17,7 +17,7 @@
 
             {% if messages %}
             {% for message in messages %}
-            <div class="alert"><strong>{{ message }}</strong></div>
+            <div class="alert-{{message.tags}}"><strong>{{ message }}</strong></div>
             {% endfor %}
             {% endif %}
 
@@ -43,7 +43,7 @@
                 Already have an account? <a href="{% url 'login' %}">login</a>
             </div>
         </form>
-
+    </div>
         {% endblock content %}
 </body>
 
