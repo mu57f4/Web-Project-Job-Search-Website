@@ -1,0 +1,55 @@
+/* Ensure the navbar fills the entire width */
+body, html {
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #052659;
+    padding: 10px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.navbar .logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+.navbar .nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-menu li {
+    margin-left: 20px;
+}
+
+.navbar .nav-menu a {
+    color: #ffffffcc;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.navbar .login-button a {
+    margin-left: 10px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 5px 10px;
+    border: 1px solid #fff;
+    border-radius: 3px;
+}
+
+.navbar .login-button a:hover {
+    background-color: #0d5fdb;
+}
