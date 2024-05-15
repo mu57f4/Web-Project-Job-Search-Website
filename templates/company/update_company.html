@@ -9,9 +9,9 @@
 
 <body>
     {% block content %}
-    <link href="{% static 'css/update_company.css' %}">
-        <div class="login-container">
-            <form method="POST" class="login-form">
+    <link rel="stylesheet" href="{% static 'css/update_company.css' %}">
+        <div class="update-container">
+            <form method="POST" class="update-form">
                 {% csrf_token %}
 
                 {% if messages %}
@@ -21,22 +21,22 @@
                 {% endif %}
 
                 <h3><strong>Update your company information</strong></h3>
-                <div class="form-group">
+                <div class="update-form-group">
                     <label for="exampleInputEmail1">Company Name</label>
                     {% render_field form.name class="form-control"%}
                 </div>
 
-                <div class="form-group">
+                <div class="update-form-group">
                     <label for="exampleInputPassword1">Establish Date</label>
                     {% render_field form.establish_date class="form-control" %}
                 </div>
 
-                <div class="form-group">
+                <div class="update-form-group">
                     <label for="exampleInputPassword2">City</label>
                     {% render_field form.city class="form-control" %}
                 </div>
 
-                <div class="form-group">
+                <div class="update-form-group">
                     <label for="exampleInputPassword2">State</label>
                     {% render_field form.state class="form-control" %}
                 </div>
