@@ -1,23 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
 <html>
-    <head>
-        <title>
-            Dashboard
-        </title>
-    </head>
-    <body>
-        <h1>
-            {% if username %}
-                Welcome to your Dashboard, {{ username }}
-            {% else %}
-                This is the Dashboard, Please go to <a href="{% url 'login' %}">LOGIN PAGE</a>
-            {% endif %}
-        </h1>
-        <button type="button" id="logoutButton">Logout</button>
 
-        <script type="text/javascript">
-            document.getElementById('logoutButton').onclick = function() {
-                window.location.href = "{% url 'logout' %}";
-            };
-        </script>
-    </body>
+<head>
+    <title>Applicant Login Page</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+    {% block content %}
+
+    <h1>
+        {% if username %}
+        Welcome to your Dashboard, {{ username }}
+        {% else %}
+        This is the Dashboard, Please go to <a href="{% url 'login' %}">LOGIN PAGE</a>
+        {% endif %}
+    </h1>
+    {% endblock content %}
+</body>
+
 </html>

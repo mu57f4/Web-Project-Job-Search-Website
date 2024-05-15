@@ -1,34 +1,50 @@
 {% load widget_tweaks %}
+{% load widget_tweaks %}
+{% load static %}
 <html>
-    <head>
-        <title>
-            Applicant Sign up Page
-        </title>
-    </head>
-    <body>
-        <h2> Applicant Sign up</h2>
-        {% block content %}
-        <form method="POST">
+
+<head>
+    <title>Applicant Login Page</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+    <h2>Looking for your dream job?</h2>
+    {% block content %}
+    <div class="login-container">
+        <form method="POST" class="login-form">
             {% csrf_token %}
-            
+
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert"><strong>{{ message }}</strong></div>
+            {% endfor %}
+            {% endif %}
+
+            <h3><strong>Sign up</strong></h3>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
-                {% render_field form.email class="form-control" %}
+                {% render_field form.email class="form-control" placeholder="Enter email"%}
             </div>
 
             <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                {% render_field form.password1 class="form-control" %}
+                {% render_field form.password1 class="form-control" placeholder="password"%}
             </div>
 
             <div class="form-group">
                 <label for="exampleInputPassword2">Confirm Password</label>
-                {% render_field form.password2 class="form-control" %}
+                {% render_field form.password2 class="form-control" placeholder="confirm password"%}
             </div>
-            
+
             <button type="submit" class="btn btn-primary">Sign up</button>
+
+            <div class="signup-link">
+                Already have an account? <a href="{% url 'login' %}">login</a>
+            </div>
         </form>
-        
+
         {% endblock content %}
-    </body>
+</body>
+
 </html>

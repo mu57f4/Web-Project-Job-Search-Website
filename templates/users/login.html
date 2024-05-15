@@ -1,35 +1,49 @@
 {% load widget_tweaks %}
+{% load static %}
 <html>
-    <head>
-        <title>
-            Applicant Login Page
-        </title>
-    </head>
-    <body>
-        <h2> Login </h2>
-        {% block content %}
-        <form method="POST">
-            {% csrf_token %}
 
+<head>
+    <title>Applicant Login Page</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+
+<body>
+    <h2>Get Hired Quickly, Login now</h2>
+    {% block content %}
+    <div class="login-container">
+        <form method="POST" class="login-form">
+            {% csrf_token %}
+            
             {% if messages %}
             {% for message in messages %}
-                <b> {{message}} </b><br><br>
+            <div class="alert"><strong>{{ message }}</strong></div>
             {% endfor %}
             {% endif %}
-            
+
+            <h3><strong>Login</strong></h3>
             <div class="form-group">
                 <label for="exampleInputEmail">Email address</label>
-                <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="email" class="form-control" name="email" id="exampleInputEmail1"
+                    aria-describedby="emailHelp" placeholder="Enter email">
             </div>
 
             <div class="form-group">
                 <label for="exampleInputPassword">Password</label>
-                <input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+                <input type="password" class="form-control" name="password" id="exampleInputPassword1"
+                    placeholder="Password">
             </div>
-            
+
             <button type="submit" class="btn btn-primary">Log in</button>
+
+            <div class="signup-link">
+                Don't have an account? Sign up as<br>
+                <a href="{% url 'register-applicant' %}">Applicant</a>
+                or
+                <a href="{% url 'register-recruiter' %}">Recruiter</a>
+            </div>
         </form>
-        
-        {% endblock content %}
-    </body>
+    </div>
+    {% endblock %}
+</body>
+
 </html>
