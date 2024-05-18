@@ -23,6 +23,14 @@
         </div>
         {% endif %}
     {% endif %}
+    
+    {% if request.user.is_applicant %}
+        {% if not request.user.has_resume %}
+        <div class="alert-warning">
+            <b>You have not created a resume, Create one now from <a href="{% url 'update-resume' %}">here</a></b>
+        </div>
+        {% endif %}
+    {% endif %}
 
     <h1>
         Welcome to your Dashboard, {{ username }}
