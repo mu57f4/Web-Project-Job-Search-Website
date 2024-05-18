@@ -22,3 +22,17 @@ users/__pycache__/backends.cpython-311.pyc
 company/__pycache__/views.cpython-311.pyc
 users/migrations/0002_user_has_company.py
 users/migrations/__pycache__/0002_user_has_company.cpython-311.pyc
+company/__pycache__/urls.cpython-311.pyc
+resume/__pycache__/__init__.cpython-311.pyc
+resume/__pycache__/admin.cpython-311.pyc
+resume/__pycache__/apps.cpython-311.pyc
+resume/__pycache__/form.cpython-311.pyc
+resume/__pycache__/models.cpython-311.pyc
+resume/__pycache__/urls.cpython-311.pyc
+resume/__pycache__/views.cpython-311.pyc
+resume/migrations/__init__.py
+resume/migrations/0001_initial.py
+resume/migrations/__pycache__/__init__.cpython-311.pyc
+resume/migrations/__pycache__/0001_initial.cpython-311.pyc
+users/migrations/0003_user_has_resume.py
+users/migrations/__pycache__/0003_user_has_resume.cpython-311.pyc
