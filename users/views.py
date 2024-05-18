@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from .models import User
 from .form import RegisterUserForm
 from company.models import Company
+from resume.models import Resume
 
 # Register applicant
 def register_applicant(request):
@@ -12,8 +13,10 @@ def register_applicant(request):
         if form.is_valid():
             var = form.save(commit=False)
             var.is_applicant = True
+            var.has_resume = False
             var.username = var.email
             var.save()
+            Resume.objects.create(user=var)
             messages.success(request, 'Your account has been created successfully.')
             return redirect('login')
         else:
