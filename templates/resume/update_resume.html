@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+<html>
+
+<head>
+    <title>Update Resume</title>
+</head>
+
+<body>
+    {% block content %}
+    <link rel="stylesheet" href="{% static 'css/update_company.css' %}">
+        <div class="update-container">
+            <form method="POST" class="update-form">
+                {% csrf_token %}
+
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert-{{ message.tags }}"><strong>{{ message.info }}</strong></div>
+                {% endfor %}
+                {% endif %}
+
+                <h3><strong>Update your Resume</strong></h3>
+                <div class="update-form-group">
+                    <label for="exampleInputEmail1">First Name</label>
+                    {% render_field form.first_name class="form-control"%}
+                </div>
+
+                <div class="update-form-group">
+                    <label for="exampleInputEmail1">Last Name</label>
+                    {% render_field form.last_name class="form-control"%}
+                </div>
+
+                <div class="update-form-group">
+                    <label for="exampleInputEmail1">location</label>
+                    {% render_field form.location class="form-control"%}
+                </div>
+
+                <div class="update-form-group">
+                    <label for="exampleInputEmail1">Current Job Title</label>
+                    {% render_field form.job_title class="form-control"%}
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+        </div>
+    {% endblock %}
+
+</body>
+
+</html>
