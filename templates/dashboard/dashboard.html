@@ -9,12 +9,11 @@
 <body>
     {% block content %}
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
-    {% if username %}
 
     {% if messages %}
-    {% for message in messages %}
-    <div class="alert-{{message.tags}}"><strong>{{ message }}</strong></div>
-    {% endfor %}
+        {% for message in messages %}
+        <div class="alert-{{message.tags}}"><strong>{{ message }}</strong></div>
+        {% endfor %}
     {% endif %}
 
     {% if request.user.is_recruiter %}
@@ -27,11 +26,7 @@
 
     <h1>
         Welcome to your Dashboard, {{ username }}
-        {% else %}
-        This is the Dashboard, Please go to <a href="{% url 'login' %}">LOGIN PAGE</a>
     </h1>
-
-    {% endif %}
     {% endblock content %}
 </body>
 
