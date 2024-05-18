@@ -6,7 +6,7 @@ from .form import UpdateResumeForm
 
 
 def update_resume(request):
-    if request.user.is_applicant:
+    if request.user.is_authenticated and request.user.is_applicant:
         resume = Resume.objects.get(user=request.user)
         if request.method == 'POST':
             form = UpdateResumeForm(request.POST, instance=resume)
