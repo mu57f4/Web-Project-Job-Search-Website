@@ -7,7 +7,7 @@ from users.models import User
 
 # update company
 def update_company(request):
-    if request.user.is_authenticated and request.user.is_recuriter:
+    if request.user.is_authenticated and request.user.is_recruiter:
         company = Company.objects.get(user=request.user)
         if request.method == 'POST':
             form = UpdateCompanyForm(request.POST, instance=company)
