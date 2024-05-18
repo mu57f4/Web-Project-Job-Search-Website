@@ -67,6 +67,6 @@ def login_user(request):
     
 
 def logout_user(request):
-    # todo: send message
+    messages.success(request, 'Your session has ended.')
     logout(request)
     return redirect('login')
