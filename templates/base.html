@@ -15,11 +15,18 @@
             <a href="{% url 'dashboard' %}">Job Search Website</a>
         </div>
         <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="Search.html">Search</a></li>
-            <li><a href="jobs.html">View Jobs</a></li>
+            {% if request.user.is_recruiter %}
+            <li><a href="{% url 'dashboard' %}">Home</a></li>
             <li><a href="add_new_job.html">Add New Job</a></li>
+            <li><a href="jobs.html">Created Jobs</a></li>
+            <li><a href="{% url 'update-company' %}">Update Company</a></li>
+            {% endif %}
+            {% if request.user.is_applicant %}
+            <li><a href="{% url 'dashboard' %}">Home</a></li>
+            <li><a href="jobs.html">Jobs Ads</a></li>
             <li><a href="applied_jobs.html">Applied Jobs</a></li>
+            <li><a href="{% url 'update-resume' %}">Update Resume</a></li>
+            {% endif %}
         </ul>
         <div class="login-button">
             {% if request.user.is_authenticated %}
