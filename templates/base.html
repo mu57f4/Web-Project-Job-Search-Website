@@ -17,7 +17,7 @@
         <ul class="nav-menu">
             {% if request.user.is_recruiter %}
             <li><a href="{% url 'dashboard' %}">Home</a></li>
-            <li><a href="add_new_job.html">Add New Job</a></li>
+            <li><a href="{% url 'create-job' %}">Add New Job</a></li>
             <li><a href="jobs.html">Created Jobs</a></li>
             <li><a href="{% url 'update-company' %}">Update Company</a></li>
             {% endif %}
