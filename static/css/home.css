@@ -1,0 +1,62 @@
+
+.search-section {
+    background-color: white;
+    padding: 35px;
+    width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 60px;
+    margin-left: 250px;
+    text-align: center;
+    font-size: 17px;
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.search-container input, .search-container select, .search-container button {
+    padding: 10px 25px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.search-container button {
+    background-color: #052659;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.more-jobs {
+    background-color: #052659;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.pagination {
+    display: flex;
+    gap: 5px;
+    margin: 20px 0;
+}
+
+.pagination button {
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.pagination .active {
+    background-color: #052659;
+    color: white;
+    border: none;
+}
