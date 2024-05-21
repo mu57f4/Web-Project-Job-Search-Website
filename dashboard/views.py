@@ -1,9 +1,12 @@
 from django.shortcuts import render
+from job.models import Job
 
 
 def dashboard(request):
-    username = request.user.username if request.user.is_authenticated else 'Guest'
-    return render(
-        request, 'dashboard/dashboard.html',
-        {'username': username}
-        )
+    return render(request, 'dashboard/home.html')
+
+
+def job_listing(request):
+    jobs = Job.objects.filter(is_available=True)
+    context = {'jobs': jobs}
+    return render(request, 'dashboard/job_listing.html', context)
