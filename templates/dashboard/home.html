@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% load static %}
+    {% block content %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <section class="search-section">
+        <div class="search-container">
+            <input type="text" placeholder="Job Keyword">
+            <select>
+                <option>Location</option>
+                <!-- Add more options here -->
+            </select>
+            <select>
+                <option>Job Type</option>
+                <!-- Add more options here -->
+            </select>
+            <select>
+                <option>Industry</option>
+                <!-- Add more options here -->
+            </select>
+            <button>Search</button>
+        </div>
+        <p>Welcome to Django Job Portal! Search and get your dream job. We have thousands of job offerings for you. Don't forget to leave a like when you get a job. Good luck with your job hunt!</p>
+        <button class="more-jobs">More Jobs</button>
+    </section>
+    <div class="pagination">
+        <button>Previous</button>
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>Next</button>
+    </div>
+    {% endblock %}
