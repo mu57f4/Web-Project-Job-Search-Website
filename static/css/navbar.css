@@ -37,14 +37,14 @@ body, html {
 .navbar .nav-menu a {
     color: #ffffffcc;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 17px;
 }
 
 .navbar .login-button a {
     margin-left: 10px;
     color: #fff;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 17px;
     padding: 5px 10px;
     border: 1px solid #fff;
     border-radius: 3px;
