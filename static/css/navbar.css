@@ -32,12 +32,18 @@ body, html {
 
 .navbar .nav-menu li {
     margin-left: 20px;
+    color: #c7c7c7cc;
+    font-size: 14px;
 }
 
 .navbar .nav-menu a {
     color: #ffffffcc;
     text-decoration: none;
     font-size: 17px;
+}
+
+.navbar .nav-menu a:hover {
+    color: white;
 }
 
 .navbar .login-button a {
