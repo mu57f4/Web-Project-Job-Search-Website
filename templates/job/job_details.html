@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<head>
+  <title>Job Ad Template</title>
+  <link rel="stylesheet" href="{% static 'css/job_details.css' %}">
+</head>
+{% if job %}
+  <div class="job-ad-container">
+    <div class="job-ad">
+      <h1 class="job-title">{{job.title}}</h1>
+      <div class="job-details">
+        <p class="time-stamp">Posted {{job.timestamp | naturaltime}}</p>
+        <span class="job-type">Full-Time</span>|
+        <span class="location">{{job.location}}</span>|
+        <span class="company-name">{{job.company}}</span>|
+        <span class="job-industry">Technology</span>
+      </div>
+      <a class="apply-btn" href="#">Apply</a>
+      <div class="job-description">
+        <h2>Description</h2>
+        <p>{{job.description}}</p>
+      </div>
+      <div class="job-requirements">
+        <h2>Job Requirements</h2>
+        <p>{{job.requirements}}</p>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endblock %}

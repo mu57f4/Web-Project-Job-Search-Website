@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
-    <title>Menu Page</title>
 </head>
 
 <body>
@@ -18,14 +17,15 @@
             {% if request.user.is_recruiter %}
             <li><a href="{% url 'dashboard' %}">Home</a></li>
             <li><a href="{% url 'create-job' %}">Add New Job</a></li>
-            <li><a href="jobs.html">Created Jobs</a></li>
+            <li><a href="{% url 'manage-jobs' %}">Manage Jobs</a></li>
             <li><a href="{% url 'update-company' %}">Update Company</a></li>
+            <li>{{request.user.username}}</li>
             {% endif %}
             {% if request.user.is_applicant %}
             <li><a href="{% url 'dashboard' %}">Home</a></li>
-            <li><a href="jobs.html">Jobs Ads</a></li>
             <li><a href="applied_jobs.html">Applied Jobs</a></li>
             <li><a href="{% url 'update-resume' %}">Update Resume</a></li>
+            <li>{{request.user.username}}</li>
             {% endif %}
         </ul>
         <div class="login-button">

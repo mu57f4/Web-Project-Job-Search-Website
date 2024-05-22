@@ -1,62 +1,56 @@
 {% extends 'base.html' %}
 {% load widget_tweaks %}
 {% load static %}
-<html>
+{% block content %}
 
 <head>
-    <title>Updaet Job</title>
-</head>
-
-<body>
-    {% block content %}
+    <title>Update Job</title>
     <link rel="stylesheet" href="{% static 'css/update_company.css' %}">
-        <div class="update-container">
-            <form method="POST" class="update-form">
-                {% csrf_token %}
+</head>
+<div class="update-container">
+    <form method="POST" class="update-form">
+        {% csrf_token %}
 
-                {% if messages %}
-                {% for message in messages %}
-                <div class="alert-{{ message.tags }}"><strong>{{ message }}</strong></div>
-                {% endfor %}
-                {% endif %}
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert-{{ message.tags }}"><strong>{{ message }}</strong></div>
+        {% endfor %}
+        {% endif %}
 
-                <h3><strong>Update job information</strong></h3>
-                
-                <div class="update-form-group">
-                    <label for="exampleInputEmail1">Title</label>
-                    {% render_field form.title class="form-control"%}
-                </div>
+        <h3><strong>Update job information</strong></h3>
 
-                <div class="update-form-group">
-                    <label for="exampleInputEmail1">Location</label>
-                    {% render_field form.location class="form-control"%}
-                </div>
-
-                <div class="update-form-group">
-                    <label for="exampleInputEmail1">Salary</label>
-                    {% render_field form.salary class="form-control"%}
-                </div>
-
-                <div class="update-form-group">
-                    <label for="exampleInputEmail1">Description</label>
-                    {% render_field form.description rows="5" class="form-control"%}
-                </div>
-
-                <div class="update-form-group">
-                    <label for="exampleInputEmail1">Requirements</label>
-                    {% render_field form.requirements rows="5" class="form-control"%}
-                </div>
-
-                <div class="update-form-group">
-                    <label for="exampleInputEmail1">Is this job available?</label>
-                    {% render_field form.is_available class="form-control"%}
-                </div>
-
-                <button type="submit" class="btn btn-primary">Submit</button>
-
-            </form>
+        <div class="update-form-group">
+            <label for="exampleInputEmail1">Title</label>
+            {% render_field form.title class="form-control"%}
         </div>
-    {% endblock %}
-</body>
 
-</html>
+        <div class="update-form-group">
+            <label for="exampleInputEmail1">Location</label>
+            {% render_field form.location class="form-control"%}
+        </div>
+
+        <div class="update-form-group">
+            <label for="exampleInputEmail1">Salary</label>
+            {% render_field form.salary class="form-control"%}
+        </div>
+
+        <div class="update-form-group">
+            <label for="exampleInputEmail1">Description</label>
+            {% render_field form.description rows="5" class="form-control"%}
+        </div>
+
+        <div class="update-form-group">
+            <label for="exampleInputEmail1">Requirements</label>
+            {% render_field form.requirements rows="5" class="form-control"%}
+        </div>
+
+        <div class="update-form-group">
+            <label for="exampleInputEmail1">Is this job available?</label>
+            {% render_field form.is_available class="form-control"%}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+</div>
+{% endblock %}

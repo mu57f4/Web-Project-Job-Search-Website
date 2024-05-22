@@ -1,15 +1,11 @@
 {% extends 'base.html' %}
 {% load widget_tweaks %}
 {% load static %}
-<html>
-
-<head>
-    <title>Update Company</title>
-</head>
-
-<body>
     {% block content %}
-    <link rel="stylesheet" href="{% static 'css/update_company.css' %}">
+    <head>
+        <title>Update Company</title>
+        <link rel="stylesheet" href="{% static 'css/update_company.css' %}">
+    </head>
         <div class="update-container">
             <form method="POST" class="update-form">
                 {% csrf_token %}
@@ -46,7 +42,3 @@
             </form>
         </div>
     {% endblock %}
-
-</body>
-
-</html>
