@@ -1,13 +1,22 @@
+body, html {
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
 
 .search-section {
     background-color: white;
     padding: 35px;
-    width: 800px;
+    width: 1000px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-top: 60px;
-    margin-left: 250px;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
-    font-size: 17px;
+    font-size: 19px;
+    border-radius: 10px;
 }
 
 .search-container {
@@ -22,6 +31,7 @@
     border: 1px solid #ced4da;
     border-radius: 5px;
     width: 100%;
+    font-size: 15px;
 }
 
 .search-container button {
@@ -29,6 +39,10 @@
     color: white;
     border: none;
     cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #0d5fdb;
 }
 
 .more-jobs {
@@ -39,7 +53,12 @@
     border-radius: 5px;
     cursor: pointer;
     margin-top: 10px;
+    font-size: 15px;
 }
+
+.more-jobs:hover {
+    background-color: #0d5fdb;
+  }
 
 .pagination {
     display: flex;
@@ -55,8 +74,32 @@
     background-color: white;
 }
 
+.pagination button:hover {
+    background-color: #052659;
+    color: white;
+
+}
+
 .pagination .active {
     background-color: #052659;
     color: white;
     border: none;
+}
+
+.alert-warning {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #f5c6cb;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: 1px solid #c3e6cb;
 }
