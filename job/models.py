@@ -12,6 +12,7 @@ class Job(models.Model):
     description = models.TextField()
     requirements = models.TextField()
     is_available = models.BooleanField(default=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
         return self.title
