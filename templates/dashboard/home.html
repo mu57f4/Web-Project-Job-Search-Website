@@ -1,32 +1,78 @@
 {% extends 'base.html'%}
 {% load static %}
-    {% block content %}
+{% load humanize %}
+{% block content %}
+
+
+<head>
+    <title>
+        Dashboard
+    </title>
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <section class="search-section">
-        <div class="search-container">
-            <input type="text" placeholder="Job Keyword">
-            <select>
-                <option>Location</option>
-                <!-- Add more options here -->
-            </select>
-            <select>
-                <option>Job Type</option>
-                <!-- Add more options here -->
-            </select>
-            <select>
-                <option>Industry</option>
-                <!-- Add more options here -->
-            </select>
-            <button>Search</button>
+    <link rel="stylesheet" href="{% static 'css/job_listing.css' %}">
+</head>
+{% if messages %}
+{% for message in messages %}
+<div class="alert-{{message.tags}}"><strong>{{ message }}</strong></div>
+{% endfor %}
+{% endif %}
+{% if request.user.is_authenticated %}
+{% if request.user.is_recruiter %}
+{% if not request.user.has_company %}
+<div class="alert-warning">
+    <b>You have not created a company, Create one now from <a href="{% url 'update-company' %}">here</a></b>
+</div>
+{% endif %}
+{% endif %}
+
+{% if request.user.is_applicant %}
+{% if not request.user.has_resume %}
+<div class="alert-warning">
+    <b>You have not created a resume, Create one now from <a href="{% url 'update-resume' %}">here</a></b>
+</div>
+{% endif %}
+{% endif %}
+<section class="search-section">
+    <div class="search-container">
+        <input type="text" placeholder="Job Keyword">
+        <select>
+            <option>Location</option>
+            <!-- Add more options here -->
+        </select>
+        <select>
+            <option>Job Type</option>
+            <!-- Add more options here -->
+        </select>
+        <select>
+            <option>Industry</option>
+            <!-- Add more options here -->
+        </select>
+        <button>Search</button>
+    </div>
+    <p>Welcome {{request.user.username}}, Good luck with your job hunt!</p>
+    <button class="more-jobs">More Jobs</button>
+</section>
+{% if jobs %}
+<div class="cards-container">
+    {% for job in jobs %}
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">{{job.title}}</h4>
+            <h5>{{job.company}} | {{job.location}}</h5>
+            <h6>{{job.salary | intcomma}} EGP</h6>
+            <a href="{% url 'job-details' job.pk %}" class="details-btn">View Details</a>
+            <small class="card-date">Created {{job.timestamp | naturaltime}}</small>
         </div>
-        <p>Welcome to Django Job Portal! Search and get your dream job. We have thousands of job offerings for you. Don't forget to leave a like when you get a job. Good luck with your job hunt!</p>
-        <button class="more-jobs">More Jobs</button>
-    </section>
-    <div class="pagination">
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endif %}
+<!-- <div class="pagination">
         <button>Previous</button>
         <button class="active">1</button>
         <button>2</button>
         <button>3</button>
         <button>Next</button>
-    </div>
-    {% endblock %}
+    </div> -->
+{% endblock %}

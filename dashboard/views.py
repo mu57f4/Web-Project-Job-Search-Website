@@ -2,11 +2,7 @@ from django.shortcuts import render
 from job.models import Job
 
 
-def dashboard(request):
-    return render(request, 'dashboard/home.html')
-
-
 def job_listing(request):
-    jobs = Job.objects.filter(is_available=True)
+    jobs = Job.objects.filter(is_available=True).order_by('-timestamp')
     context = {'jobs': jobs}
-    return render(request, 'dashboard/job_listing.html', context)
+    return render(request, 'dashboard/home.html', context)
