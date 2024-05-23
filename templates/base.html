@@ -16,14 +16,14 @@
         <ul class="nav-menu">
             {% if request.user.is_recruiter %}
             <li><a href="{% url 'dashboard' %}">Home</a></li>
-            <li><a href="{% url 'create-job' %}">Add New Job</a></li>
-            <li><a href="{% url 'manage-jobs' %}">Manage Jobs</a></li>
+            <li><a href="{% url 'job:create-job' %}">Add New Job</a></li>
+            <li><a href="{% url 'job:manage-jobs' %}">Manage Jobs</a></li>
             <li><a href="{% url 'update-company' %}">Update Company</a></li>
             <li>{{request.user.username}}</li>
             {% endif %}
             {% if request.user.is_applicant %}
             <li><a href="{% url 'dashboard' %}">Home</a></li>
-            <li><a href="applied_jobs.html">Applied Jobs</a></li>
+            <li><a href="{% url 'applied:my_applications' %}">Applied Jobs</a></li>
             <li><a href="{% url 'update-resume' %}">Update Resume</a></li>
             <li>{{request.user.username}}</li>
             {% endif %}
