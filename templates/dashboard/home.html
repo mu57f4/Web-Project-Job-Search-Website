@@ -2,8 +2,6 @@
 {% load static %}
 {% load humanize %}
 {% block content %}
-
-
 <head>
     <title>
         Dashboard
@@ -32,26 +30,7 @@
 </div>
 {% endif %}
 {% endif %}
-<section class="search-section">
-    <div class="search-container">
-        <input type="text" placeholder="Job Keyword">
-        <select>
-            <option>Location</option>
-            <!-- Add more options here -->
-        </select>
-        <select>
-            <option>Job Type</option>
-            <!-- Add more options here -->
-        </select>
-        <select>
-            <option>Industry</option>
-            <!-- Add more options here -->
-        </select>
-        <button>Search</button>
-    </div>
-    <p>Welcome {{request.user.username}}, Good luck with your job hunt!</p>
-    <button class="more-jobs">More Jobs</button>
-</section>
+<h2>Welcome back, {{request.user.username}}</h2>
 {% if jobs %}
 <div class="cards-container">
     {% for job in jobs %}
