@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+
+{% block content %}
+<head>
+    <title>
+        All Applicants
+    </title>
+    <link rel="stylesheet" href="{% static 'css/manage_jobs.css' %}">
+</head>
+{% if messages %}
+{% for message in messages %}
+<div class="alert-{{message.tags}}"><strong>{{ message }}</strong></div>
+{% endfor %}
+{% endif %}
+{% if applicants %}
+<div class="table-container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Position</th>
+                <th scope="col">Location</th>
+                <th scope="col">Application Date</th>
+                <th scope="col">Resume PDF</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for applicant in applicants %}
+            <tr>
+                <td>{{applicant.user.resume.first_name}}</td>
+                <td>{{applicant.user.resume.last_name}}</td>
+                <td>{{applicant.user.email}}</td>
+                <td>{{applicant.user.resume.job_title}}</td>
+                <td>{{applicant.user.resume.location}}</td>
+                <td>{{applicant.applied_date}}</td>
+                {% if applicant.user.resume.upload_resume %}
+                <td><a target="_blank" href="{{applicant.user.resume.upload_resume.url}}">Download Resume</a></td>
+                {% else %}
+                <td>NA</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+{% endblock %}

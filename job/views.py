@@ -79,4 +79,12 @@ def apply_for_job(request, job_id):
         job.num_applicants += 1
         job.save()
         messages.success(request, 'You application was submited succeccfuly.')
-    return redirect('applied:my_applications')
+    return redirect('applied:my_applications')\
+        
+@login_required
+def all_applicants(request, pk):
+    job = get_object_or_404(Job, pk=pk)
+    applicants = applied.objects.filter(job=job)
+    context = {'job': job, 'applicants': applicants}
+    return render(request, 'job/all_applicants.html', context)
+
