@@ -88,3 +88,6 @@ job/migrations/0013_job_num_applicants.py
 job/migrations/0014_alter_job_num_applicants.py
 job/migrations/__pycache__/0013_job_num_applicants.cpython-311.pyc
 job/migrations/__pycache__/0014_alter_job_num_applicants.cpython-311.pyc
+dashboard/__pycache__/filter.cpython-311.pyc
+job/migrations/__pycache__/0015_delete_industry.cpython-311.pyc
+job/migrations/0015_delete_industry.py
