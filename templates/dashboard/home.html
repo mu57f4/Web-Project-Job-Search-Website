@@ -60,7 +60,7 @@
             <h4 class="card-title">{{job.title}}</h4>
             <h5>{{job.company}} | {{job.location}}</h5>
             <h6>{{job.salary | intcomma}} EGP</h6>
-            <a href="{% url 'job-details' job.pk %}" class="details-btn">View Details</a>
+            <a href="{% url 'job:job_detail' job.pk %}" class="details-btn">View Details</a>
             <small class="card-date">Created {{job.timestamp | naturaltime}}</small>
         </div>
     </div>
