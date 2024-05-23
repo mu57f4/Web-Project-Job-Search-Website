@@ -23,6 +23,7 @@
             {% endif %}
             {% if request.user.is_applicant %}
             <li><a href="{% url 'dashboard' %}">Home</a></li>
+            <li><a href="{% url 'search' %}">Search</a></li>
             <li><a href="{% url 'applied:my_applications' %}">Applied Jobs</a></li>
             <li><a href="{% url 'update-resume' %}">Update Resume</a></li>
             <li>{{request.user.username}}</li>
