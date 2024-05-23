@@ -47,8 +47,8 @@
         </div>
 
         <div class="update-form-group">
-            <label for="exampleInputEmail1">Is this job available?</label>
-            {% render_field form.is_available class="form-control"%}
+            <label for="exampleInputEmail1" class="form-control-availability-label">Is this job available?</label>
+            {% render_field form.is_available class="form-control form-control-availability"%}
         </div>
 
         <button type="submit" class="btn-submit">Submit</button>
