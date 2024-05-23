@@ -29,7 +29,12 @@
         </div>
 
         <div class="update-form-group">
-            <label for="exampleInputEmail1">Salary</label>
+            <label for="exampleInputEmail1">Job Type</label>
+            {% render_field form.job_type class="form-control"%}
+        </div>
+
+        <div class="update-form-group">
+            <label for="exampleInputEmail1">Salary (Or leave it blank)</label>
             {% render_field form.salary class="form-control"%}
         </div>
 
