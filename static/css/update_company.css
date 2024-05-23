@@ -6,7 +6,7 @@ h2, h3 {
 
 .update-container {
     margin: 50px;
-    width: 350px;
+    width: 500px;
     background: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -92,3 +92,17 @@ h2, h3 {
     border: 1px solid #c3e6cb;
 }
 
+input,
+select {
+  padding: 8px 100px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+textarea {
+    padding: 8px 27px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
