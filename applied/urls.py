@@ -6,4 +6,5 @@ app_name = 'applied'
 urlpatterns = [
     path('', views.AppliedListView.as_view(), name='applied_list'),
     path('my-applications/', views.applied_list, name='my_applications'),
+    path('ajax/applied/', views.ajax_applied_list, name='ajax_applied_list'),
 ]
