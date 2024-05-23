@@ -12,12 +12,24 @@
       <h1 class="job-title">{{job.title}}</h1>
       <div class="job-details">
         <p class="time-stamp">Posted {{job.timestamp | naturaltime}}</p>
-        <span class="job-type">Full-Time</span>|
+        <span class="job-type">{{job.job_type}}</span>|
         <span class="location">{{job.location}}</span>|
-        <span class="company-name">{{job.company}}</span>|
-        <span class="job-industry">Technology</span>
+        <span class="company-name">{{job.company}}</span>
+        <a>{{already_applied}}</a>
       </div>
-      <a class="apply-btn" href="#">Apply</a>
+    {% if user.is_authenticated %}
+    {% if user.is_applicant %}
+        {% if not already_applied %}
+      <a class="apply-btn" href="{% url 'job:apply_for_job' job.id %}">Apply</a>
+      {% else %}
+      <span  class="warning">You have already applied for this job.</span>
+      {% endif %}
+      {% else %}
+      <span  class="warning">Recruiters can not apply for jobs.</span>
+      {% endif %}
+      {% else %}
+      <span  class="warning">Login to apply for this job.</span>
+      {% endif %}
       <div class="job-description">
         <h2>Description</h2>
         <p>{{job.description}}</p>
