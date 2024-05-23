@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load humanize %}
+{% load widget_tweaks %}
+{% block content %}
+<head>
+    <title>Search</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/job_listing.css' %}">
+</head>
+<form class="search-section" method="GET">
+    <div class="search-container">
+            {% render_field filter.form.title placeholder="Job Keyword" %}
+            {% render_field filter.form.location placeholder="Location" %}
+            {% render_field filter.form.job_type %}
+        <button type="submit">Search</button>
+    </div>
+    <p>Welcome {{ request.user.username }}, Good luck with your job hunt!</p>
+</form>
+{% if filter %}
+<div class="cards-container">
+    {% for job in filter.qs %}
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">{{ job.title }}</h4>
+            <h5>{{ job.company }} | {{ job.location }}</h5>
+            <h6>{{ job.salary | intcomma }} EGP</h6>
+            <a href="{% url 'job:job_detail' job.pk %}" class="details-btn">View Details</a>
+            <small class="card-date">Created {{ job.timestamp | naturaltime }}</small>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock %}
