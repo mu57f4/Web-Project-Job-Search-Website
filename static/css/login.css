@@ -102,3 +102,7 @@ h2, h3 {
     margin-bottom: 20px;
     border: 1px solid #c3e6cb;
 }
+
+.alert {
+    color: red;
+}

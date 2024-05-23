@@ -6,13 +6,15 @@
 <head>
     <title>Applicant Login Page</title>
     <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <script src="{% static 'js/validation.js' %}"></script>
 </head>
 
 <body>
     <h2>Looking for your dream job?</h2>
     {% block content %}
     <div class="login-container">
-        <form method="POST" class="login-form">
+        <div class="alert"><strong id="error"></strong></div>
+        <form method="POST" class="login-form" onsubmit="return validateSignupForm(event)">
             {% csrf_token %}
 
             {% if messages %}

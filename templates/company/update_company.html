@@ -5,9 +5,11 @@
     <head>
         <title>Update Company</title>
         <link rel="stylesheet" href="{% static 'css/update_company.css' %}">
+        <script src="{% static 'js/validation.js' %}"></script>
     </head>
         <div class="update-container">
-            <form method="POST" class="update-form">
+            <div class="alert"><strong id="error"></strong></div>
+            <form method="POST" class="update-form" onsubmit="return validateUpdateCompanyForm(event)">
                 {% csrf_token %}
 
                 {% if messages %}
@@ -37,7 +39,7 @@
                     {% render_field form.state class="form-control" %}
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn-submit">Submit</button>
 
             </form>
         </div>

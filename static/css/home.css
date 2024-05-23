@@ -12,6 +12,13 @@ h2 {
     padding-top: 10px;
 }
 
+h3 {
+    color: #04193a;
+    padding-left: 20px;
+    padding-top: 10px;
+    text-align: center;
+}
+
 .search-section {
     background-color: white;
     padding: 35px;
@@ -108,4 +115,8 @@ h2 {
     border-radius: 4px;
     margin-bottom: 20px;
     border: 1px solid #c3e6cb;
+}
+
+.alert {
+    color: red;
 }

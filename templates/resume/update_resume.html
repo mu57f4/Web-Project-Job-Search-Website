@@ -6,9 +6,11 @@
 <head>
     <title>Update Resume</title>
     <link rel="stylesheet" href="{% static 'css/update_company.css' %}">
+    <script src="{% static 'js/validation.js' %}"></script>
 </head>
 <div class="update-container">
-    <form method="POST" class="update-form" enctype="multipart/form-data">
+    <div class="alert"><strong id="error"></strong></div>
+    <form method="POST" class="update-form" enctype="multipart/form-data" onsubmit="return validateUpdateResumeForm(event)">
         {% csrf_token %}
 
         {% if messages %}

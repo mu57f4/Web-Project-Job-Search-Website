@@ -44,7 +44,7 @@ def update_job(request, pk):
                 messages.warning(request, 'Opps!, something went wrong')
         else:
             form = UpdateJobForm(instance=job)
-            context = {'form': form}
+            context = {'form': form, 'job': job}
             return render(request, 'job/update_job.html', context)
     else:
         messages.warning(request, 'Permission Denied')
@@ -88,3 +88,14 @@ def all_applicants(request, pk):
     context = {'job': job, 'applicants': applicants}
     return render(request, 'job/all_applicants.html', context)
 
+
+def delete_job(request, pk):
+    if request.user.is_authenticated and request.user.is_recruiter and request.user.has_company:
+        job = Job.objects.get(pk=pk)
+        job.delete()
+        messages.success(request, 'Job deleted successfuly.')
+        return redirect('job:manage-jobs')
+    else:
+        messages.warning(request, 'Permission Denied')
+        return redirect('dashboard')
+    

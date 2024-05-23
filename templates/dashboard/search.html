@@ -7,8 +7,10 @@
     <title>Search</title>
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/job_listing.css' %}">
+    <script src="{% static 'js/validation.js' %}"></script>
 </head>
-<form class="search-section" method="GET">
+<form class="search-section" method="GET" onsubmit="return validateSearchForm(event)">
+    <div class="alert"><strong id="error"></strong></div>
     <div class="search-container">
             {% render_field filter.form.title placeholder="Job Keyword" %}
             {% render_field filter.form.location placeholder="Location" %}
@@ -17,7 +19,7 @@
     </div>
     <p>Welcome {{ request.user.username }}, Good luck with your job hunt!</p>
 </form>
-{% if filter %}
+{% if filter.qs %}
 <div class="cards-container">
     {% for job in filter.qs %}
     <div class="card">
@@ -31,5 +33,7 @@
     </div>
     {% endfor %}
 </div>
+{% else %}
+    <h3 class="center">Sorry, No jobs found</h3>
 {% endif %}
 {% endblock %}

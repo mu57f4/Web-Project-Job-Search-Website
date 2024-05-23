@@ -42,11 +42,11 @@ h2, h3 {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
-.btn-primary {
-    background-color: #007bff;
+.btn-submit {
+    background-color: #052659;
     border: none;
     color: white;
-    padding: 10px 15px;
+    padding: 10px 0px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -54,10 +54,30 @@ h2, h3 {
     border-radius: 4px;
     cursor: pointer;
     width: 100%;
+    margin-top: 40px;
 }
 
-.btn-primary:hover {
+.btn-submit:hover {
     background-color: #0056b3;
+}
+
+.btn-delete {
+    background-color: rgb(209, 3, 3);
+    border: none;
+    color: white;
+    padding: 10px 0px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.btn-delete:hover {
+    background-color: rgb(255, 0, 0);
 }
 
 .signup-link {
@@ -105,4 +125,8 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 15px;
+}
+
+.alert {
+    color: red;
 }
