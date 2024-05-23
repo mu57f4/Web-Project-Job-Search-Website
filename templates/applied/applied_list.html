@@ -5,43 +5,29 @@
 {% block content %}
 <head>
     <title>
-        Manage Jobs
+        Applications
     </title>
     <link rel="stylesheet" href="{% static 'css/manage_jobs.css' %}">
+    <script src="{% static 'js/applied_list.js' %}" defer></script>
 </head>
-{% if messages %}
-{% for message in messages %}
-<div class="alert-{{message.tags}}"><strong>{{ message }}</strong></div>
-{% endfor %}
-{% endif %}
-{% if jobs and applied_jobs%}
-<div class="table-container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Job Title</th>
-                <th scope="col">Location</th>
-                <th scope="col">Salary</th>
-                <th scope="col">Job Type</th>
-                <th scope="col">Application Time</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for applied_job in applied_jobs %}
-            <tr>
-                <td>{{applied_job.job.title}}</td>
-                <td>{{applied_job.job.location}}</td>
-                {% if applied_job.job.salary == 0 %}
-                <td>NA</td>
-                {% else %}
-                <td>{{applied_job.job.salary | intcomma}}</td>
-                {% endif %}
-                <td>{{applied_job.job.job_type}}</td>
-                <td>{{applied_job.applied_date}}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
-{% endif %}
+<body>
+    <h2 style="text-align: center;">Applications</h2>
+    <div id="messages"></div>
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Job Title</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Job Type</th>
+                    <th scope="col">Application Time</th>
+                </tr>
+            </thead>
+            <tbody id="applications-table-body">
+                
+            </tbody>
+        </table>
+    </div>
+</body>
 {% endblock %}
