@@ -91,3 +91,7 @@ job/migrations/__pycache__/0014_alter_job_num_applicants.cpython-311.pyc
 dashboard/__pycache__/filter.cpython-311.pyc
 job/migrations/__pycache__/0015_delete_industry.cpython-311.pyc
 job/migrations/0015_delete_industry.py
+applied/migrations/0004_alter_applied_job.py
+applied/migrations/__pycache__/0004_alter_applied_job.cpython-311.pyc
+resume/migrations/0002_resume_upload_resume.py
+resume/migrations/__pycache__/0002_resume_upload_resume.cpython-311.pyc
