@@ -35,7 +35,7 @@
                 <td>{{job.location}}</td>
                 <td>{{job.salary | intcomma}}</td>
                 <!-- todo: add # of applicants -->
-                <td>{{job.num_applicants}}</td>
+                <td>{{job.num_applicants}}<a href="{% url 'job:all-applicants' job.pk %}"> view all</a></td>
                 {% if job.is_available %}
                 <td class="active"><strong>active</strong></td>
                 {% else %}
