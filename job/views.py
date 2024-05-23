@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from django.contrib import messages
 from .models import Job 
 from applied.models import applied
@@ -79,7 +80,13 @@ def apply_for_job(request, job_id):
         job.num_applicants += 1
         job.save()
         messages.success(request, 'You application was submited succeccfuly.')
-    return redirect('applied:my_applications')\
+    return redirect('applied:my_applications')
+
+def get_num_applicants(request, pk):
+    job = Job.objects.get(pk=pk)
+    num_applicants = job.num_applicants
+    context = {'num_applicants': num_applicants}
+    return JsonResponse(context)
         
 @login_required
 def all_applicants(request, pk):
