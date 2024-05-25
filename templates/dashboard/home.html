@@ -37,8 +37,16 @@
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">{{job.title}}</h4>
+            {% if job.job_type == 'Remote' %}
+            <h5>{{job.company}} | Remote</h5>
+            {% else %}
             <h5>{{job.company}} | {{job.location}}</h5>
-            <h6>{{job.salary | intcomma}} EGP</h6>
+            {% endif %}
+            {% if job.salary == 0 %}
+            <h6>N/A EGP / Month</h6>
+            {% else %}
+            <h6>{{job.salary | intcomma}} EGP / Month</h6>
+            {% endif %}
             <a href="{% url 'job:job_detail' job.pk %}" class="details-btn">View Details</a>
             <small class="card-date">Created {{job.timestamp | naturaltime}}</small>
         </div>
