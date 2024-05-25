@@ -32,8 +32,13 @@
         </div>
 
         <div class="update-form-group">
-            <label for="exampleInputEmail1">Salary</label>
+            <label for="exampleInputEmail1">Salary/month</label>
             {% render_field form.salary class="form-control"%}
+        </div>
+
+        <div class="update-form-group">
+            <label for="exampleInputEmail1">Years of experience (minimum)</label>
+            {% render_field form.years_of_experience class="form-control"%}
         </div>
 
         <div class="update-form-group">

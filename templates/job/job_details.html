@@ -12,10 +12,26 @@
       <h1 class="job-title">{{job.title}}</h1>
       <div class="job-details">
         <p class="time-stamp">Posted {{job.timestamp | naturaltime}}</p>
+        {% if job.salary == 0 %}
+        <h3>N/A EGP</h3>
+        {% else %}
+        <h3 class="time-stamp"><strong>{{job.salary | intcomma}} EGP / Month</strong></h3>
+        {% endif %}
+        
+        {% if job.years_of_experience == 1%}
+        <p class="time-stamp">Minimum 1 year of experience</p>
+        {% else %}
+        <p class="time-stamp">Minimum {{job.years_of_experience}} years of experience</p>
+        {% endif %}
         <span class="job-type">{{job.job_type}}</span>|
-        <span class="location">{{job.location}}</span>|
+        
+        {% if job.job_type == 'Remote'  %}
+          <span class="location">From home</span>|
+        {% else %}
+          <span class="location">{{job.location}}</span>|
+        {% endif %}
+
         <span class="company-name">{{job.company}}</span>
-        <a>{{already_applied}}</a>
       </div>
     {% if user.is_authenticated %}
     {% if user.is_applicant %}
