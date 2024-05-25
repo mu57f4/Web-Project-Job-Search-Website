@@ -99,3 +99,5 @@ applied/migrations/__pycache__/0005_alter_applied_job.cpython-311.pyc
 applied/migrations/0005_alter_applied_job.py
 job/migrations/0016_job_years_of_experience.py
 job/migrations/__pycache__/0016_job_years_of_experience.cpython-311.pyc
+users/migrations/0004_alter_user_username.py
+users/migrations/__pycache__/0004_alter_user_username.cpython-311.pyc
