@@ -14,6 +14,7 @@ class Job(models.Model):
     title = models.CharField(max_length=100)
     location = models.CharField(max_length=100)
     salary = models.PositiveIntegerField(default=0)
+    years_of_experience = models.PositiveIntegerField(default=0)
     description = models.TextField()
     requirements = models.TextField()
     is_available = models.BooleanField(default=True)
