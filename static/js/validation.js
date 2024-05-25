@@ -94,12 +94,17 @@ function validateSearchForm(event){
     errorElement.textContent = '';
 
     var search_query = document.getElementById('id_title').value.trim();
-    var location = document.getElementById('id_location').value.trim();
+    var years_of_experience = document.getElementById('id_years_of_experience').value.trim();
     var job_type = document.getElementById('id_job_type').value.trim();
     
-    if (search_query === "" & location === "" & job_type === ""){
+    if (search_query === "" & years_of_experience === "" & job_type === ""){
         errorElement.textContent = 'Please, enter at least one search filter';
         return false;
+    }
+
+    if (years_of_experience < 0){
+        errorElement.textContent = 'Years of experience can not be a -ve int';
+        return false
     }
     
     event.target.submit();
