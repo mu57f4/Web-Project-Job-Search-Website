@@ -5,4 +5,4 @@ class RegisterUserForm(UserCreationForm):
 
     class Meta:
         model = get_user_model()
-        fields = ['email', 'password1', 'password2']
+        fields = ['username','email', 'password1', 'password2']

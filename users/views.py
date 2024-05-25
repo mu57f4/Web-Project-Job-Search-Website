@@ -14,7 +14,6 @@ def register_applicant(request):
             var = form.save(commit=False)
             var.is_applicant = True
             var.has_resume = False
-            var.username = var.email
             var.save()
             Resume.objects.create(user=var)
             messages.success(request, 'Your account has been created successfully.')
@@ -36,7 +35,6 @@ def register_recruiter(request):
             var = form.save(commit=False)
             var.is_recruiter = True
             var.has_company = False
-            var.username = var.email
             var.save()
             Company.objects.create(user=var)
             messages.success(request, 'Your account has been created successfully.')
